@@ -26,7 +26,7 @@ body {
   color: var(--white);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  cursor: none;
+  /* cursor: none; - Handled by body */
 }
 
 /* CUSTOM CURSOR */
@@ -140,7 +140,7 @@ nav.scrolled {
   background: var(--accent);
   padding: 10px 22px;
   border: none;
-  cursor: none;
+  /* cursor: none; - Handled by body */
   font-weight: 700;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s;
@@ -500,7 +500,7 @@ section {
   color: var(--white);
   position: relative;
   transition: padding-left 0.3s;
-  cursor: none;
+  /* cursor: none; - Handled by body */
 }
 
 .project-row:last-child {
@@ -626,7 +626,7 @@ section {
   text-decoration: none;
   padding: 16px 36px;
   transition: all 0.25s;
-  cursor: none;
+  /* cursor: none; - Handled by body */
 }
 
 .contact-btn.primary {
