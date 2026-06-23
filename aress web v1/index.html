@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aress — Designer & Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- PROJECT PREVIEW -->
+  <div class="proj-preview" id="projPreview">
+    <div class="proj-preview-inner" id="projPreviewInner"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo"><span>A</span>ress</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-grid"></div>
+
+    <div class="hero-tag">Available for work — 2025</div>
+
+    <h1 class="hero-name" id="heroName">
+      <span id="typedName"></span><span class="cursor-blink"></span>
+    </h1>
+
+    <p class="hero-sub">
+      <em>Designer</em> & <em>Developer</em> — crafting visual experiences<br>
+      that fuse code, design, and cinematic vision.
+      <br><span lang="ar" style="color:var(--gray);font-size:0.8em;">مصمم · مطور · مخرج سينمائي</span>
+    </p>
+
+    <div class="hero-bottom">
+      <div class="hero-tagline">
+        <strong>« Every second counts »</strong>
+        — Aress brand philosophy
+      </div>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        scroll
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner" id="ticker">
+      <span>Graphic Design</span><span class="dot">✦</span>
+      <span>Web Development</span><span class="dot">✦</span>
+      <span>Cinematic Direction</span><span class="dot">✦</span>
+      <span>AI Integration</span><span class="dot">✦</span>
+      <span>Brand Identity</span><span class="dot">✦</span>
+      <span lang="ar">التصميم الجرافيكي</span><span class="dot">✦</span>
+      <span lang="ar">تطوير المواقع</span><span class="dot">✦</span>
+      <span lang="ar">الإخراج السينمائي</span><span class="dot">✦</span>
+      <span>Graphic Design</span><span class="dot">✦</span>
+      <span>Web Development</span><span class="dot">✦</span>
+      <span>Cinematic Direction</span><span class="dot">✦</span>
+      <span>AI Integration</span><span class="dot">✦</span>
+      <span>Brand Identity</span><span class="dot">✦</span>
+      <span lang="ar">التصميم الجرافيكي</span><span class="dot">✦</span>
+      <span lang="ar">تطوير المواقع</span><span class="dot">✦</span>
+      <span lang="ar">الإخراج السينمائي</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="reveal">
+      <p class="section-label">What I Do</p>
+      <h2 class="section-title">Services<span style="color:var(--accent)">.</span></h2>
+    </div>
+
+    <div class="services-grid reveal">
+
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <span class="service-icon">✦</span>
+        <h3 class="service-title">Graphic Design</h3>
+        <p class="service-desc">Visual identities, brand systems, and print/digital design that communicate with
+          precision and personality. Every pixel is intentional.</p>
+        <div class="service-tools">
+          <span class="tool-tag">Photoshop</span>
+          <span class="tool-tag">Illustrator</span>
+          <span class="tool-tag">InDesign</span>
+          <span class="tool-tag">Affinity</span>
+          <span class="tool-tag">Canva</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <span class="service-icon">◈</span>
+        <h3 class="service-title">Web Development</h3>
+        <p class="service-desc">Clean, fast, and responsive websites built from scratch with custom code — no templates,
+          no shortcuts. Pure craft.</p>
+        <div class="service-tools">
+          <span class="tool-tag">HTML</span>
+          <span class="tool-tag">CSS</span>
+          <span class="tool-tag">JavaScript</span>
+          <span class="tool-tag">C++</span>
+          <span class="tool-tag">Python</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <span class="service-icon">⬡</span>
+        <h3 class="service-title">Cinematic Direction</h3>
+        <p class="service-desc">Scene construction, visual storytelling, and cinematic production with a director's eye.
+          Every frame tells a story.</p>
+        <div class="service-tools">
+          <span class="tool-tag">Scene Building</span>
+          <span class="tool-tag">Visual Story</span>
+          <span class="tool-tag">AI Production</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-header reveal">
+      <div>
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title">Projects<span style="color:var(--accent)">.</span></h2>
+      </div>
+      <div class="note">
+        ⚠ Placeholder projects<br>— to be updated with real work
+      </div>
+    </div>
+
+    <div class="projects-list reveal">
+
+      <a class="project-row" href="/coming-soon" data-emoji="✦" data-bg="#1a1a00">
+        <span class="proj-num">01</span>
+        <span class="proj-name">Brand Identity — Aress</span>
+        <div class="proj-tags">
+          <span class="proj-tag">Branding</span>
+          <span class="proj-tag">Design</span>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="project-row" href="project-Portfolio-Website.html" data-emoji="◈" data-bg="#00101a">
+        <span class="proj-num">02</span>
+        <span class="proj-name">Portfolio Website</span>
+        <div class="proj-tags">
+          <span class="proj-tag">HTML/CSS/JS</span>
+          <span class="proj-tag">Dev</span>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="project-row" href="/coming-soon" data-emoji="⬡" data-bg="#0a001a">
+        <span class="proj-num">03</span>
+        <span class="proj-name">Cinematic Scene — Project X</span>
+        <div class="proj-tags">
+          <span class="proj-tag">Cinematic</span>
+          <span class="proj-tag">AI</span>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="project-row" href="/coming-soon" data-emoji="✺" data-bg="#001a0a">
+        <span class="proj-num">04</span>
+        <span class="proj-name">Social Media Campaign</span>
+        <div class="proj-tags">
+          <span class="proj-tag">Graphic</span>
+          <span class="proj-tag">Social</span>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="reveal">
+      <p class="section-label">Get In Touch</p>
+    </div>
+    <div class="reveal">
+      <h2 class="contact-big">
+        Let's Build<br>
+        <span class="line2">Something.</span>
+      </h2>
+    </div>
+    <div class="contact-divider"></div>
+    <p class="contact-sub reveal">
+      Open for freelance projects, collaborations, and creative ideas.<br>
+      <span lang="ar">متاح للمشاريع المستقلة والتعاون الإبداعي.</span>
+    </p>
+    <div class="contact-links reveal">
+      <a href="mailto:hello@Aress.design" class="contact-btn primary">Send a Message</a>
+      <a href="/coming-soon" class="contact-btn secondary">View CV</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ft-logo"><span>A</span>ress</div>
+    <div class="ft-copy">© 2025 Aress — All rights reserved</div>
+    <div class="ft-tagline">Every second counts</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
