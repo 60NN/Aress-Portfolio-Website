@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>aress — animated logo</title>
+<style>
+  :root{
+    --bg:#1a1a1a;
+    --logo:#d9f103;       /* exact color from the brand sheet, page 12 */
+    --logo-soft:#e8ff4d;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;
+    height:100%;
+    background:var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .stage{
+    width:min(60vw,460px);
+    aspect-ratio:1/1;
+    position:relative;
+  }
+  svg{
+    width:100%;
+    height:100%;
+    display:block;
+    overflow:visible;
+  }
+
+  /* =========================================================
+     LOGO PATH
+     This is the EXACT outline traced from the supplied PDF
+     (page 4) using potrace at full resolution — not redrawn
+     or approximated. The path itself is untouched; only the
+     animation properties below are added.
+     ========================================================= */
+  #logoPath{
+    fill:var(--logo);
+    stroke:var(--logo);
+    stroke-width:6;
+    fill-opacity:0;
+    /* pathLength="1000" normalizes the dash math below so the
+       draw-on effect works correctly regardless of how long the
+       traced path actually is or how the parent transform scales it */
+    stroke-dasharray:1000;
+    stroke-dashoffset:1000;
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    transform: scale(0.82);
+  }
+
+  /* =========================================================
+     INTRO TIMELINE
+     0.00s–0.15s   brief pause, page settles
+     0.15s–1.35s   outline DRAWS itself on (dash offset → 0)
+     1.00s–1.85s   fill fades in while the mark eases up to its
+                    true scale, with a gentle overshoot — the
+                    "premium settle" moment
+     1.80s–2.10s   stroke fades out, leaving a clean flat fill
+     ========================================================= */
+  .run #logoPath{
+    animation:
+      draw        1.2s  cubic-bezier(.65,0,.35,1)  0.15s forwards,
+      settleFill  0.8s  cubic-bezier(.16,1,.3,1)    1.05s forwards,
+      settleScale 0.85s cubic-bezier(.16,1,.3,1)    1.0s  forwards,
+      strokeOut   0.3s  linear                      1.8s  forwards;
+  }
+
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @keyframes settleFill{ to{ fill-opacity:1; } }
+  @keyframes settleScale{
+    0%   { transform:scale(0.82); }
+    60%  { transform:scale(1.045); }
+    100% { transform:scale(1); }
+  }
+  @keyframes strokeOut{ to{ stroke-opacity:0; stroke-width:0; } }
+
+  /* =========================================================
+     POST-INTRO HOVER INTERACTION
+     ========================================================= */
+  .settled #logoGroup{
+    cursor:pointer;
+    transition: transform .45s cubic-bezier(.16,1,.3,1);
+  }
+  .settled #logoGroup:hover{
+    transform: translateY(-10px) scale(1.015);
+  }
+  .settled #logoPath{
+    transition: filter .45s ease, fill .45s ease;
+  }
+  .settled #logoGroup:hover #logoPath{
+    fill: var(--logo-soft);
+    stroke: var(--logo-soft);
+    filter: drop-shadow(0 0 22px rgba(217,241,3,0.55)) drop-shadow(0 0 50px rgba(217,241,3,0.25));
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+    <g id="logoGroup">
+      <g transform="translate(0,1080) scale(0.1,-0.1)">
+        <!--
+          Exact traced contour from the supplied PDF (page 4),
+          produced via potrace at source resolution — single
+          continuous outline, untouched aside from styling.
+        -->
+        <path id="logoPath" pathLength="1000" d="M5333 8963 c-27 -30 -393 -716 -393 -736 0 -7 186 -708 414 -1557 227 -850 421 -1579 431 -1620 27 -115 32 -388 10 -521 -52 -312 -214 -610 -443 -818 -186 -170 -409 -286 -656 -343 -130 -30 -384 -36 -529 -14 -389 61 -751 294 -962 620 -94 145 -135 237 -190 423 -22 73 -42 127 -46 120 -4 -6 -394 -744 -868 -1639 -606 -1146 -861 -1636 -861 -1658 0 -42 15 -67 50 -85 25 -13 200 -15 1431 -15 1331 0 1401 1 1394 18 -81 193 -104 578 -50 837 110 530 531 946 1075 1062 119 25 401 25 520 0 544 -116 965 -532 1075 -1062 54 -259 31 -644 -50 -837 -7 -17 64 -18 1396 -18 1378 0 1405 0 1436 20 35 21 48 53 41 98 -6 35 -4059 7689 -4091 7725 -20 21 -33 27 -67 27 -33 0 -47 -6 -67 -27z"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<script>
+  const root = document.querySelector('.stage');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      root.classList.add('run');
+    });
+  });
+
+  const INTRO_DURATION_MS = 2150;
+  setTimeout(() => {
+    root.classList.add('settled');
+  }, INTRO_DURATION_MS);
+</script>
+
+</body>
+</html>

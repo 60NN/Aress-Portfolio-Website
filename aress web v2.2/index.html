@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="description"
+    content="aress – Designer & Developer crafting visual experiences that fuse code, design, and cinematic vision. Portfolio showcasing graphic design, web development, and cinematic direction.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aress — Designer & Developer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080808'/%3E%3Ctext x='50' y='68' font-size='60' font-family='sans-serif' font-weight='700' fill='%23D9F103' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="aress — Designer & Developer">
+  <meta property="og:description"
+    content="Designer & Developer crafting visual experiences that fuse code, design, and cinematic vision.">
+  <meta property="og:image" content="https://Aress.design/og-image.jpg">
+  <meta property="og:url" content="https://Aress.design">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aress — Designer & Developer">
+  <meta name="twitter:description"
+    content="Designer & Developer crafting visual experiences that fuse code, design, and cinematic vision.">
+  <meta name="twitter:image" content="https://Aress.design/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&family=Cairo:wght@400;500;600&display=swap">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&family=Cairo:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- PROJECT PREVIEW -->
+  <div class="proj-preview" id="projPreview">
+    <div class="proj-preview-inner" id="projPreviewInner"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo"><span>A</span>ress</a>
+    <ul class="nav-links">
+      <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+      <li><a href="#projects" data-en="Work" data-ar="الأعمال">Work</a></li>
+      <li><a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta" data-en="Hire Me" data-ar="وظفني">Hire Me</a>
+    <button class="lang-switch" id="langSwitch" aria-label="Switch language" data-lang="en">
+      <span class="lang-switch-track">
+        <span class="lang-opt" data-val="en">EN</span>
+        <span class="lang-opt" data-val="ar">AR</span>
+      </span>
+    </button>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+      <li><a href="#projects" data-en="Work" data-ar="الأعمال">Work</a></li>
+      <li><a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a></li>
+    </ul>
+    <a href="#contact" class="mobile-menu-cta" data-en="Hire Me" data-ar="وظفني">Hire Me</a>
+    <button class="lang-switch lang-switch--mobile" id="langSwitchMobile" aria-label="Switch language" data-lang="en">
+      <span class="lang-switch-track">
+        <span class="lang-opt" data-val="en">EN</span>
+        <span class="lang-opt" data-val="ar">AR</span>
+      </span>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-grid"></div>
+
+    <div class="hero-tag" data-en="Available for work — 2026" data-ar="متاح للعمل الآن — 2026">Available for work — 2026</div>
+
+    <h1 class="hero-name" id="heroName">
+      <span id="typedName"></span><span class="cursor-blink"></span>
+    </h1>
+
+    <p class="hero-sub" id="heroSub"
+      data-en-html='<em>Designer</em> &amp; <em>Developer</em> — crafting visual experiences<br>that fuse code, design, and cinematic vision.'
+      data-ar-html='<em>مصمم</em> و<em>مطوّر</em> — أنشئ تجارب بصرية<br>تجمع بين الكود والتصميم والرؤية السينمائية.'>
+      <em>Designer</em> &amp; <em>Developer</em> — crafting visual experiences<br>
+      that fuse code, design, and cinematic vision.
+    </p>
+
+    <div class="hero-bottom">
+      <div class="hero-tagline">
+        <strong>« Every second counts »</strong>
+        <span data-en="— aress brand philosophy" data-ar="— فلسفة علامة aress التجارية">— aress brand philosophy</span>
+      </div>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span data-en="scroll" data-ar="تمرير">scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner" id="ticker">
+      <span>Graphic Design</span><span class="dot">✦</span>
+      <span>Web Development</span><span class="dot">✦</span>
+      <span>Cinematic Direction</span><span class="dot">✦</span>
+      <span>AI Integration</span><span class="dot">✦</span>
+      <span>Brand Identity</span><span class="dot">✦</span>
+      <span>التصميم الجرافيكي</span><span class="dot">✦</span>
+      <span>تطوير المواقع</span><span class="dot">✦</span>
+      <span>الإخراج السينمائي</span><span class="dot">✦</span>
+      <span>Graphic Design</span><span class="dot">✦</span>
+      <span>Web Development</span><span class="dot">✦</span>
+      <span>Cinematic Direction</span><span class="dot">✦</span>
+      <span>AI Integration</span><span class="dot">✦</span>
+      <span>Brand Identity</span><span class="dot">✦</span>
+      <span>التصميم الجرافيكي</span><span class="dot">✦</span>
+      <span>تطوير المواقع</span><span class="dot">✦</span>
+      <span>الإخراج السينمائي</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="reveal">
+      <p class="section-label" data-en="What I Do" data-ar="ماذا أقدم">What I Do</p>
+      <h2 class="section-title" data-en-html='Services<span style="color:var(--accent)">.</span>' data-ar-html='الخدمات<span style="color:var(--accent)">.</span>'>Services<span style="color:var(--accent)">.</span></h2>
+    </div>
+
+    <div class="services-grid reveal">
+
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <span class="service-icon" aria-hidden="true">✦</span>
+        <h3 class="service-title" data-en="Graphic Design" data-ar="التصميم الجرافيكي">Graphic Design</h3>
+        <p class="service-desc" data-en="Visual identities, brand systems, and print/digital design that communicate with precision and personality. Every pixel is intentional." data-ar="هويات بصرية وأنظمة علامات تجارية وتصاميم مطبوعة ورقمية توصل الرسالة بدقة وإبداع. كل عنصر بصري مقصود بعناية.">Visual identities, brand systems, and print/digital design that communicate with precision and personality. Every pixel is intentional.</p>
+        <div class="service-tools">
+          <span class="tool-tag">Photoshop</span>
+          <span class="tool-tag">Illustrator</span>
+          <span class="tool-tag">InDesign</span>
+          <span class="tool-tag">Affinity</span>
+          <span class="tool-tag">Canva</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <span class="service-icon" aria-hidden="true">◈</span>
+        <h3 class="service-title" data-en="Web Development" data-ar="تطوير المواقع">Web Development</h3>
+        <p class="service-desc" data-en="Clean, fast, and responsive websites built from scratch with custom code — no templates, no shortcuts. Pure craft." data-ar="مواقع إلكترونية نظيفة وسريعة ومتجاوبة، مبنية من الصفر بأكواد مخصصة — بدون قوالب جاهزة، بدون اختصارات. حرفية خالصة.">Clean, fast, and responsive websites built from scratch with custom code — no templates, no shortcuts. Pure craft.</p>
+        <div class="service-tools">
+          <span class="tool-tag">HTML</span>
+          <span class="tool-tag">CSS</span>
+          <span class="tool-tag">JavaScript</span>
+          <span class="tool-tag">C++</span>
+          <span class="tool-tag">Python</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <span class="service-icon" aria-hidden="true">⬡</span>
+        <h3 class="service-title" data-en="Cinematic Direction" data-ar="الإخراج السينمائي">Cinematic Direction</h3>
+        <p class="service-desc" data-en="Scene construction, visual storytelling, and cinematic production with a director's eye. Every frame tells a story." data-ar="بناء المشاهد السينمائية وسرد القصص البصرية والإنتاج الاحترافي برؤية مخرج متمكّن. كل لقطة تحكي قصة فريدة.">Scene construction, visual storytelling, and cinematic production with a director's eye. Every frame tells a story.</p>
+        <div class="service-tools">
+          <span class="tool-tag" data-en="Scene Building" data-ar="بناء المشاهد">Scene Building</span>
+          <span class="tool-tag" data-en="Visual Story" data-ar="قصة بصرية">Visual Story</span>
+          <span class="tool-tag" data-en="AI Production" data-ar="إنتاج بالذكاء الاصطناعي">AI Production</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-header reveal">
+      <div>
+        <p class="section-label" data-en="Selected Work" data-ar="أعمال مختارة">Selected Work</p>
+        <h2 class="section-title" data-en-html='Projects<span style="color:var(--accent)">.</span>' data-ar-html='المشاريع<span style="color:var(--accent)">.</span>'>Projects<span style="color:var(--accent)">.</span></h2>
+      </div>
+      <div class="note">
+        <span data-en="⚠ Placeholder projects — to be updated with real work" data-ar="⚠ مشاريع مؤقتة — سيتم تحديثها بأعمال حقيقية">⚠ Placeholder projects<br>— to be updated with real work</span>
+      </div>
+    </div>
+
+    <div class="projects-list reveal">
+
+      <a class="project-row is-soon" href="#projects" data-emoji="✦" data-bg="#1a1a00"
+        aria-label="Brand Identity — aress (coming soon)">
+        <span class="proj-num">01</span>
+        <span class="proj-name" data-en="Brand Identity — aress" data-ar="الهوية التجارية — aress">Brand Identity — aress</span>
+        <div class="proj-tags">
+          <span class="proj-tag" data-en="Branding" data-ar="علامة تجارية">Branding</span>
+          <span class="proj-tag" data-en="Design" data-ar="تصميم">Design</span>
+        </div>
+        <span class="proj-arrow"></span>
+      </a>
+
+      <a class="project-row" href="project-Portfolio-Website.html" data-emoji="◈" data-bg="#00101a">
+        <span class="proj-num">02</span>
+        <span class="proj-name" data-en="Website Development" data-ar="تطوير الموقع">Website Development</span>
+        <div class="proj-tags">
+          <span class="proj-tag">HTML/CSS/JS</span>
+          <span class="proj-tag" data-en="Dev" data-ar="تطوير">Dev</span>
+        </div>
+        <span class="proj-arrow">↗</span>
+      </a>
+
+      <a class="project-row is-soon" href="#projects" data-emoji="⬡" data-bg="#0a001a"
+        aria-label="Cinematic Scene — Project X (coming soon)">
+        <span class="proj-num">03</span>
+        <span class="proj-name" data-en="Cinematic Scene — Project X" data-ar="مشهد سينمائي احترافي — مشروع X">Cinematic Scene — Project X</span>
+        <div class="proj-tags">
+          <span class="proj-tag" data-en="Cinematic" data-ar="سينمائي">Cinematic</span>
+          <span class="proj-tag" data-en="AI" data-ar="ذكاء اصطناعي">AI</span>
+        </div>
+        <span class="proj-arrow"></span>
+      </a>
+
+      <a class="project-row is-soon" href="#projects" data-emoji="✺" data-bg="#001a0a"
+        aria-label="Social Media Campaign (coming soon)">
+        <span class="proj-num">04</span>
+        <span class="proj-name" data-en="Social Media Campaign" data-ar="حملة وسائل التواصل الاجتماعي">Social Media Campaign</span>
+        <div class="proj-tags">
+          <span class="proj-tag" data-en="Graphic" data-ar="جرافيك">Graphic</span>
+          <span class="proj-tag" data-en="Social" data-ar="اجتماعي">Social</span>
+        </div>
+        <span class="proj-arrow"></span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="reveal">
+      <p class="section-label" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</p>
+    </div>
+    <div class="reveal">
+      <h2 class="contact-big" id="contactBig"
+        data-en-html="Let's Build<br><span class='line2'>Something.</span>"
+        data-ar-html="لننشئ معاً<br><span class='line2'>شيئاً رائعاً.</span>">
+        Let's Build<br>
+        <span class="line2">Something.</span>
+      </h2>
+    </div>
+    <div class="contact-divider"></div>
+    <p class="contact-sub reveal">
+      <span data-en="Open for freelance projects, collaborations, and creative ideas." data-ar="أنا متاح للمشاريع المستقلة والتعاونيات والأفكار الإبداعية المبتكرة.">Open for freelance projects, collaborations, and creative ideas.</span>
+    </p>
+    <div class="contact-links reveal">
+      <a href="https://wa.me/964779404349" class="contact-btn primary" data-en="Send a Message" data-ar="ابدأ محادثة">Send a Message</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ft-logo"><span>A</span>ress</div>
+    <div class="ft-copy">© 2026 aress — <span data-en="All rights reserved" data-ar="جميع الحقوق محفوظة © 2026">All rights reserved</span></div>
+    <div class="ft-tagline" data-en="Every second counts" data-ar="كل ثانية تحسب">Every second counts</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
