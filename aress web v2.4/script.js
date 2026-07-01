@@ -6,20 +6,20 @@ const isTouchDevice = () =>
 
 if (!isTouchDevice()) {
   const cursor = document.getElementById('cursor');
-  const ring   = document.getElementById('cursorRing');
+  const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     cursor.style.left = mx + 'px';
-    cursor.style.top  = my + 'px';
+    cursor.style.top = my + 'px';
   });
 
   (function animateRing() {
     rx += (mx - rx) * 0.12;
     ry += (my - ry) * 0.12;
     ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
+    ring.style.top = ry + 'px';
     requestAnimationFrame(animateRing);
   })();
 
@@ -38,7 +38,7 @@ if (ticker) {
 }
 
 // ===== MOBILE MENU =====
-const navBurger  = document.getElementById('navBurger');
+const navBurger = document.getElementById('navBurger');
 const mobileMenu = document.getElementById('mobileMenu');
 
 function closeMobileMenu() {
@@ -71,7 +71,7 @@ window.addEventListener('scroll', () => {
 
 // ===== HERO TYPEWRITER =====
 const heroName = 'aress';
-const typed    = document.getElementById('typedName');
+const typed = document.getElementById('typedName');
 let i = 0;
 
 function typeWriter() {
@@ -97,14 +97,14 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
 
 // ===== PROJECT HOVER PREVIEW =====
-const preview      = document.getElementById('projPreview');
+const preview = document.getElementById('projPreview');
 const previewInner = document.getElementById('projPreviewInner');
 
 document.querySelectorAll('.project-row').forEach(row => {
   row.addEventListener('mouseenter', () => {
     if (!preview || !previewInner) return;
-    previewInner.textContent   = row.dataset.emoji;
-    preview.style.background   = row.dataset.bg;
+    previewInner.textContent = row.dataset.emoji;
+    preview.style.background = row.dataset.bg;
     preview.classList.add('active');
   });
   row.addEventListener('mouseleave', () => {
@@ -113,7 +113,7 @@ document.querySelectorAll('.project-row').forEach(row => {
   row.addEventListener('mousemove', e => {
     if (!preview) return;
     preview.style.left = (e.clientX + 24) + 'px';
-    preview.style.top  = (e.clientY - 110) + 'px';
+    preview.style.top = (e.clientY - 110) + 'px';
   });
   row.addEventListener('click', e => {
     if (row.classList.contains('is-soon') || row.getAttribute('href') === '#') {
@@ -122,7 +122,7 @@ document.querySelectorAll('.project-row').forEach(row => {
   });
 });
 
-// ===== LANGUAGE SWITCH (EN / AR) =====
+// ===== LANGUAGE SWITCH (EN / AR) — Professional =====
 (function () {
   const switches = [
     document.getElementById('langSwitch'),
@@ -131,48 +131,50 @@ document.querySelectorAll('.project-row').forEach(row => {
 
   if (!switches.length) return;
 
-  // Elements whose innerHTML should be replaced (contain HTML tags like <em>, <span>)
-  // They carry data-en-html / data-ar-html attributes
   function applyLanguage(lang) {
     const isAr = lang === 'ar';
+    const html = document.documentElement;
 
-    // 1. Direction + lang on <html>
-    document.documentElement.setAttribute('lang', lang);
-    document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
-
-    // 2. Update body font-family for Arabic
-    document.body.style.fontFamily = isAr ? "'Cairo', sans-serif" : "'Inter', sans-serif";
-
-    // 3. Update switch UI state
+    // 1. Update switch UI state FIRST (visual toggle moves)
     switches.forEach(btn => btn.setAttribute('data-lang', lang));
 
-    // 4. Swap plain-text elements (data-en / data-ar)
-    document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-      const text = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
-      el.style.opacity = '0';
-      setTimeout(() => {
-        el.textContent = text;
-        el.style.opacity = '1';
-      }, 200);
-    });
+    // 2. Fade out all translatable content
+    const textEls = document.querySelectorAll('[data-en][data-ar]');
+    const htmlEls = document.querySelectorAll('[data-en-html][data-ar-html]');
+    const allContent = [...textEls, ...htmlEls];
 
-    // 5. Swap HTML-containing elements (data-en-html / data-ar-html)
-    document.querySelectorAll('[data-en-html][data-ar-html]').forEach(el => {
-      const html = isAr ? el.getAttribute('data-ar-html') : el.getAttribute('data-en-html');
-      el.style.opacity = '0';
-      setTimeout(() => {
-        el.innerHTML = html;
-        el.style.opacity = '1';
-      }, 200);
-    });
+    // Apply fade-out
+    allContent.forEach(el => el.style.opacity = '0');
 
-    // 6. Swap form placeholders (data-en-placeholder / data-ar-placeholder)
-    document.querySelectorAll('[data-en-placeholder][data-ar-placeholder]').forEach(el => {
-      el.placeholder = isAr ? el.getAttribute('data-ar-placeholder') : el.getAttribute('data-en-placeholder');
-    });
+    // 3. After fade-out, swap text AND change direction simultaneously
+    setTimeout(() => {
+      // Swap plain-text elements
+      textEls.forEach(el => {
+        el.textContent = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
 
-    // 7. Persist
-    localStorage.setItem('aress-lang', lang);
+      // Swap HTML-containing elements
+      htmlEls.forEach(el => {
+        el.innerHTML = isAr ? el.getAttribute('data-ar-html') : el.getAttribute('data-en-html');
+      });
+
+      // Swap form placeholders
+      document.querySelectorAll('[data-en-placeholder][data-ar-placeholder]').forEach(el => {
+        el.placeholder = isAr ? el.getAttribute('data-ar-placeholder') : el.getAttribute('data-en-placeholder');
+      });
+
+      // Change direction + lang AT THE SAME TIME as text swap (prevents layout shift)
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+
+      // Update body font-family
+      document.body.style.fontFamily = isAr ? "'Cairo', sans-serif" : "'Inter', sans-serif";
+
+      // Fade back in
+      requestAnimationFrame(() => {
+        allContent.forEach(el => el.style.opacity = '1');
+      });
+    }, 180);
   }
 
   function toggleLanguage() {
@@ -190,12 +192,27 @@ document.querySelectorAll('.project-row').forEach(row => {
 
   // Restore saved language (default: 'en')
   const saved = localStorage.getItem('aress-lang') || 'en';
-  applyLanguage(saved);
+  // Apply immediately on load (no fade needed)
+  const isAr = saved === 'ar';
+  document.documentElement.setAttribute('lang', saved);
+  document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+  document.body.style.fontFamily = isAr ? "'Cairo', sans-serif" : "'Inter', sans-serif";
+  switches.forEach(btn => btn.setAttribute('data-lang', saved));
+
+  document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+    el.textContent = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+  });
+  document.querySelectorAll('[data-en-html][data-ar-html]').forEach(el => {
+    el.innerHTML = isAr ? el.getAttribute('data-ar-html') : el.getAttribute('data-en-html');
+  });
+  document.querySelectorAll('[data-en-placeholder][data-ar-placeholder]').forEach(el => {
+    el.placeholder = isAr ? el.getAttribute('data-ar-placeholder') : el.getAttribute('data-en-placeholder');
+  });
 })();
 
 // ===== CONTACT FORM (Formspree) =====
 (function () {
-  const form   = document.getElementById('contactForm');
+  const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   if (!form || !status) return;
 
@@ -203,7 +220,7 @@ document.querySelectorAll('.project-row').forEach(row => {
   const messages = {
     sending: { en: 'Sending…', ar: 'جارٍ الإرسال…' },
     success: { en: 'Thanks — your message has been sent.', ar: 'شكراً — تم إرسال رسالتك.' },
-    error:   { en: 'Something went wrong. Please try again.', ar: 'حدث خطأ ما. حاول مرة أخرى.' }
+    error: { en: 'Something went wrong. Please try again.', ar: 'حدث خطأ ما. حاول مرة أخرى.' }
   };
   const t = key => (isAr() ? messages[key].ar : messages[key].en);
 
